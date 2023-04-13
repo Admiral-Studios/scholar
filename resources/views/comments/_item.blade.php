@@ -18,7 +18,7 @@
     <hr>
 
     @if($comment->replies->isNotEmpty())
-        <div class="col-12 answers mb-2 px-0">
+        <div class="col-12 answers px-0">
             @include('comments._list', ['comments' => $comment->replies])
         </div>
     @endif

@@ -10,10 +10,11 @@ class CommentService
     /**
      * Saves the comment
      *
-     * @param $data
+     * @param int $user_id
+     * @param array $data
      * @return bool
      */
-    public function addComment(int $user_id, array $data)
+    public function addComment(int $user_id, array $data): bool
     {
         $comment = new Comment();
         $comment->article_id = $data['article_id'];

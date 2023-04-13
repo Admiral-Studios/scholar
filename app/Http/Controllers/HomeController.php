@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
 {
@@ -11,11 +11,11 @@ class HomeController extends Controller
     /**
      * Show the application home page.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
-        $article = Article::with('rawComments')->first();
+        $article = Article::first();
 
         return view('home', compact('article'));
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * This is the model class for table "articles"
@@ -18,12 +19,12 @@ class Article extends Model
 
     protected $fillable = ['subject', 'body'];
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function rawComments()
+    public function rawComments(): HasMany
     {
         return $this->comments()->whereNull('parent_id')
             ->with(['replies', 'user']);
