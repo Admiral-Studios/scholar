@@ -20,4 +20,6 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
