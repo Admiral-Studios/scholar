@@ -25,7 +25,7 @@
                 @endif
             </div>
             @auth()
-            <div class="card-footer">
+            <div class="card-footer" id="commentsBottom">
                 <form id="commentForm" action="{{ route('comment.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="article_id" value="{{ $article->id }}">

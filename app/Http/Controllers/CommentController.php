@@ -21,7 +21,7 @@ class CommentController extends Controller
 
         $comment_service = new CommentService();
         if ($comment_service->addComment(Auth::id(), $data)) {
-            return redirect('/#comments')->with('success', 'Comment added');
+            return redirect('/#commentsBottom')->with('success', 'Comment added');
         } else {
             return back()->with('error', 'Failed to add comment');
         }
